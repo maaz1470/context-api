@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import HoverCounter from './components/HoverCounter'
+import Counter from './components/Counter'
+import React from 'react'
+import Section from './components/Section'
+import ThemeContext from './components/contexts/ThemeContext'
+export default class App extends React.Component{
+  state = {
+    theme: 'dark'
+  }
+  render() {
+    const {theme} = this.state
+    return (
+      <>
+        <ThemeContext.Provider value={{theme: theme}}><Section /></ThemeContext.Provider>
+      </>
+    )
+  }
 }
-
-export default App;
